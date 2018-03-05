@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Amy\Scripts\CanvasController.cs" />
      <Compile Include="Assets\Amy\Scripts\HouseController.cs" />
      <Compile Include="Assets\Amy\Scripts\Info\Dashboard.cs" />
      <Compile Include="Assets\Amy\Scripts\Info\House.cs" />

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class MailmanController : MonoBehaviour {
 
+	[SerializeField]
+	private CanvasController canvasCtrl;
+	private GameObject canvasCtrlGameObj;
+	private bool canvasOn = false;
+
 	private HouseController currHouseTouching = null;
 	private Dashboard dashboard;
 
 	// Use this for initialization
 	void Start () {
 		dashboard = GetComponent<Dashboard> ();
+		canvasCtrlGameObj = canvasCtrl.gameObject;
 	}
 	
 	void Update()
@@ -20,9 +26,19 @@ public class MailmanController : MonoBehaviour {
 		transform.Rotate(0, x, 0);
 		transform.Translate(0, 0, z);
 
-		if (Input.GetKeyDown ("space")) {
+		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (currHouseTouching) {
 				dashboard.pickupMail (currHouseTouching.houseID);
+			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			if (canvasOn) {
+				canvasCtrlGameObj.SetActive (false);
+				canvasOn = false;
+			} else {
+				canvasCtrlGameObj.SetActive (true);
+				canvasOn = true;
 			}
 		}
 
