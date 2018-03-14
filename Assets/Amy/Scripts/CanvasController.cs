@@ -22,7 +22,7 @@ public class CanvasController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Return)) {
 			if (canvasOn) {
 				this.transform.DOScale (Vector3.one / 10.0f, ANIMATION_SPEED).SetEase (Ease.Linear);
 				DOTween.To (() => bottomRightOn, x => bottomRightOn = x, 1.0f, 
