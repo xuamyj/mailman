@@ -1,11 +1,34 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Amy/Scripts/MailmanController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Amy/Scripts/MailController.cs">
     <Files>
-      <File FileName="Assets/Amy/Scripts/MailmanController.cs" Line="28" Column="32" />
-      <File FileName="Assets/Amy/Scripts/Info/Dashboard.cs" Line="10" Column="4" />
-      <File FileName="Assets/Amy/Scripts/CanvasController.cs" Line="4" Column="18" />
+      <File FileName="Assets/Amy/Scripts/MailController.cs" Line="20" Column="36" />
+      <File FileName="Assets/Amy/Scripts/Info/Dashboard.cs" Line="15" Column="11" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/Info/Mail.cs" Line="63" Column="28" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/Info/House.cs" Line="45" Column="12" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="248 Prelim" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Amy" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Info" expanded="True" />
+                  <Node name="MailController.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-Editor" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="248 Prelim" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
