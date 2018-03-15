@@ -36,6 +36,7 @@ public class MailmanController : MonoBehaviour {
 	void Start () {
 		dashboard = GetComponent<Dashboard> ();
 		rb = GetComponent<Rigidbody> ();
+		// rb.maxAngularVelocity = 1.0f;
 
 		mainCamera = Camera.main;
 	}
@@ -81,7 +82,13 @@ public class MailmanController : MonoBehaviour {
 		return Quaternion.AngleAxis (angle, axis) * forwardVector;
 	}
 
+
+	int cameraUpdateCount = -1;
 	void updateCamera() {
+		cameraUpdateCount++;
+		if (cameraUpdateCount % 10 != 0) {
+			return;
+		}
 		// find truck vectors
 		Vector3 truckForward = this.transform.forward;
 		Vector3 truckRight = this.transform.right;

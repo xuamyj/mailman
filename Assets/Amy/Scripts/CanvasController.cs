@@ -37,15 +37,13 @@ public class CanvasController : MonoBehaviour {
 		}
 
 		Vector3 posOffset = mainCamera.transform.forward * DIST_FROM_CAMERA;
-		
 		// center, face us
-		this.transform.position = mainCamera.transform.position + posOffset;
-		this.transform.rotation = Quaternion.LookRotation (
-			transform.position - mainCamera.transform.position);
-		
+		Vector3 newPosition = mainCamera.transform.position + posOffset;
+		Quaternion newRotation = Quaternion.LookRotation (posOffset);
+		this.transform.rotation = newRotation;
 		// move to bottom right as necessary using bottomRightOn
-		Vector3 bottomRightOffset = this.transform.up * (-0.47f * DIST_FROM_CAMERA) + 
-			this.transform.right * (0.85f * DIST_FROM_CAMERA);
-		this.transform.position += bottomRightOffset * bottomRightOn;
+		Vector3 bottomRightOffset = newRotation * Vector3.up * (-0.47f * DIST_FROM_CAMERA) + 
+			newRotation * Vector3.right * (0.85f * DIST_FROM_CAMERA);
+		this.transform.position = newPosition + bottomRightOffset * bottomRightOn;
 	}
 }
