@@ -12,9 +12,9 @@ public class HouseDatabase : MonoBehaviour {
 	string[] allHouses = new[] { 
 		// hey! if you change this, change each house's 
 		// HouseController.houseID in unity as well!
-		"MP", 
-		"DD", 
-		"ZZ"
+		"MP|1 Rose|Secret Admirer", 
+		"DD|2 Oak|Jamie", 
+		"ZZ|1 Lake|Sleepy Cat"
 	};
 
 	public House getHouseByID(string houseID) {
@@ -36,9 +36,11 @@ public class HouseDatabase : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < allHouses.Length; i++) {
-			string houseID = allHouses [i];
+			string[] entries = allHouses[i].Split ('|');
+			string houseID = entries[0];
+
 			House house = new House ();
-			house.initialize(houseID);
+			house.initialize(houseID, entries [1], entries [2]);
 			db[houseID] = house;
 		}
 	}

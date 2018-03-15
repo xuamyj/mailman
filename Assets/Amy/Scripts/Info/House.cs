@@ -7,13 +7,17 @@ public class House {
 	const bool HOUSE_DEBUG = true;
 
 	// stays the same
-	private string houseID;
+	private string houseID; // "DD"
+	private string houseAddress; // "1 Rose"
+	private string residentName; // "Jamie"
 
 	// changes
 	private List<string> mailToSend = new List<string>();
 
-	public void initialize(string houseIDVal) {
+	public void initialize(string houseIDVal, string houseAddressVal, string residentNameVal) {
 		houseID = houseIDVal;
+		houseAddress = houseAddressVal;
+		residentName = residentNameVal;
 	}
 
 	public void addMail(string mailID) {
@@ -41,6 +45,14 @@ public class House {
 	// getters
 	string getHouseID() {
 		return houseID;
+	}
+
+	string getHouseAddress() {
+		return houseAddress;
+	}
+
+	string getResidentName() {
+		return residentName;
 	}
 
 	public bool checkHasMailToSend() {

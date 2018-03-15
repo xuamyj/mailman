@@ -55,3 +55,5 @@
 /Users/amyxu/248 Prelim/Temp/bin/Debug/pb_Stl.dll
 /Users/amyxu/248 Prelim/Temp/bin/Debug/Poly2Tri.dll
 /Users/amyxu/248 Prelim/Temp/bin/Debug/ProBuilderEditor-Unity5.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/TextMeshPro-2017.3-1.0.56-Runtime.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/TextMeshPro-2017.3-1.0.56-Editor.dll
