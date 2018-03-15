@@ -191,10 +191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FORCE_MULT_FACTOR: 20000
+  TORQUE_MULT_FACTOR: 10000
   UP_ROT_ANGLE: 15
   RIGHT_ROT_ANGLE: 10
   UP_POS_MOVE: 16.6
   BACK_POS_MOVE: -51.2
+  JUMP_FACTOR: 70
 --- !u!114 &6541975
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class MailmanController : MonoBehaviour {
 	const float VELOCITY_CAP_FACTOR = 0.9f;
 	[SerializeField]
 	float FORCE_MULT_FACTOR = 20000.0f;
+	[SerializeField]
+	float TORQUE_MULT_FACTOR = 100.0f;
 	const float TURN_EASINESS_FACTOR = 8.0f;
 
 	[SerializeField]
@@ -26,6 +28,9 @@ public class MailmanController : MonoBehaviour {
 	float BACK_POS_MOVE = -51.2f;
 
 	float CAMERA_TWEEN_CONST = 0.5f;
+
+	[SerializeField]
+	float JUMP_FACTOR = 120.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -43,11 +48,11 @@ public class MailmanController : MonoBehaviour {
 	
 	void FixedUpdate() {
 		Vector3 force = this.transform.forward * Input.GetAxis ("Vertical") * FORCE_MULT_FACTOR * Time.fixedDeltaTime; 
-		Vector3 torque = this.transform.up * Input.GetAxis ("Horizontal") * FORCE_MULT_FACTOR * Time.fixedDeltaTime;
+		Vector3 torque = this.transform.up * Input.GetAxis ("Horizontal") * TORQUE_MULT_FACTOR * Time.fixedDeltaTime;
 		if (force.magnitude > 0.01f || torque.magnitude > 0.01f) {
 			// add force
 			rb.AddForce (force);
-			rb.AddTorque (torque);
+			rb.AddTorque (torque, ForceMode.Impulse);
 
 			// add "air resistance" (caps speed)
 			rb.velocity *= VELOCITY_CAP_FACTOR;
@@ -65,7 +70,10 @@ public class MailmanController : MonoBehaviour {
 			// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * TURN_EASINESS_FACTOR);
 		} else {
 			// TODO: need to add "screech" animation here
-			rb.velocity = Vector3.zero;
+			// rb.velocity = Vector3.zero;
+		}
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			rb.AddForce (new Vector3 (0.0f, 1.0f) * JUMP_FACTOR, ForceMode.Impulse);
 		}
 	}
 
