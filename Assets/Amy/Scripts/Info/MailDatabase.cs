@@ -34,7 +34,7 @@ public class MailDatabase : MonoBehaviour {
 	}
 		
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		for (int i = 0; i < allMail.Length; i++) {
 			string[] entries = allMail[i].Split ('|');
 
@@ -57,10 +57,5 @@ public class MailDatabase : MonoBehaviour {
 			mail.initialize(mailID, entries [1], entries [2], daysToRead, text);
 			db [mailID] = mail;
 		}
-	}
-
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Dashboard : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class Dashboard : MonoBehaviour {
 	private List<string> mailBeingHeld = new List<string>();
 	private float milesToday = 0.0f;
 	private int deliveryCount = 0;
+
+	public event Action<List<string>> mailHeldChanged;
 		
 	void drive (float milesDriven = 0.1f) {
 		milesToday += milesDriven;
@@ -26,6 +29,15 @@ public class Dashboard : MonoBehaviour {
 			Debug.Log ("Dashboard: so far, we have driven " +  milesToday + " miles today.");
 		}
 	}
+
+	public void deliverMailToHouse(string houseId)
+	{
+		List<string> mails = new List<string> (mailBeingHeld);
+		foreach (string mailID in mails) {
+			Debug.Log(deliverMail (mailID, houseId));
+		}
+	}
+
 
 	// returns house response
 	// TODO: add interesting responses per house
@@ -40,7 +52,7 @@ public class Dashboard : MonoBehaviour {
 		}
 
 		// check mail belongs to this house
-		if (mail.getToHouseID() == houseID) {
+		if (mail.getToHouseID() != houseID) {
 			if (DASHBOARD_DEBUG) {
 				Debug.Log ("Dashboard: mail with ID " + mailID + " does not belong to house " + houseID);
 			}
@@ -55,6 +67,10 @@ public class Dashboard : MonoBehaviour {
 
 			if (DASHBOARD_DEBUG) {
 				Debug.Log ("Dashboard: delivered mail with ID " + mailID + " to house " + houseID);
+			}
+
+			if (mailHeldChanged != null){
+				mailHeldChanged (mailBeingHeld);
 			}
 			return "Thanks!";
 		}
@@ -85,6 +101,10 @@ public class Dashboard : MonoBehaviour {
 				if (DASHBOARD_DEBUG) {
 					Debug.Log ("Dashboard: picked up mail with ID " + mailID + " from house " + houseID);
 				}
+			}
+
+			if (mailHeldChanged != null){
+				mailHeldChanged (mailBeingHeld);
 			}
 			return "Yay, it's the mailman!";
 		}

@@ -31,10 +31,6 @@ public class HouseDatabase : MonoBehaviour {
 
 	void Awake() {
 		instance = this;
-	}
-
-	// Use this for initialization
-	void Start () {
 		for (int i = 0; i < allHouses.Length; i++) {
 			string[] entries = allHouses[i].Split ('|');
 			string houseID = entries[0];
@@ -43,10 +39,5 @@ public class HouseDatabase : MonoBehaviour {
 			house.initialize(houseID, entries [1], entries [2]);
 			db[houseID] = house;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

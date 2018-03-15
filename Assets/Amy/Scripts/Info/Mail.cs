@@ -68,7 +68,7 @@ public class Mail {
 		return daysToRead;
 	}
 
-	List<string> getText() {
+	public List<string> getText() {
 		return text;
 	}
 

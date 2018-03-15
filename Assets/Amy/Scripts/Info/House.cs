@@ -31,7 +31,7 @@ public class House {
 	public List<string> pickupMailToSend() {
 		if (checkHasMailToSend()) {
 			List<string> result = mailToSend;
-			mailToSend.Clear();
+			mailToSend = new List<string>();
 
 			if (HOUSE_DEBUG) {
 				Debug.Log ("House: mail was picked up from house " + houseID);
@@ -43,15 +43,15 @@ public class House {
 	}
 
 	// getters
-	string getHouseID() {
+	public string getHouseID() {
 		return houseID;
 	}
 
-	string getHouseAddress() {
+	public string getHouseAddress() {
 		return houseAddress;
 	}
 
-	string getResidentName() {
+	public string getResidentName() {
 		return residentName;
 	}
 

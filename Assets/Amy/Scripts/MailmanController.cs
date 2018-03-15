@@ -48,8 +48,12 @@ public class MailmanController : MonoBehaviour {
 	//	}
 	
 	void FixedUpdate() {
+		if (CanvasController.instance.isOn ()) {
+			return;
+		}
+
 		Vector3 force = this.transform.forward * Input.GetAxis ("Vertical") * FORCE_MULT_FACTOR * Time.fixedDeltaTime; 
-		Vector3 torque = this.transform.up * Input.GetAxis ("Horizontal") * TORQUE_MULT_FACTOR * Time.fixedDeltaTime;
+		Vector3 torque = Mathf.Sign(Input.GetAxis ("Vertical"))*this.transform.up * Input.GetAxis ("Horizontal") * TORQUE_MULT_FACTOR * Time.fixedDeltaTime;
 		if (force.magnitude > 0.01f || torque.magnitude > 0.01f) {
 			// add force
 			rb.AddForce (force);
@@ -103,7 +107,7 @@ public class MailmanController : MonoBehaviour {
 		cameraPosition.y = UP_POS_MOVE;
 
 		mainCamera.transform.DOMove(cameraPosition, CAMERA_TWEEN_CONST);
-		mainCamera.transform.DOLookAt (this.transform.position, CAMERA_TWEEN_CONST);
+		mainCamera.transform.DOLookAt (this.transform.position, CAMERA_TWEEN_CONST*2);
 	}
 
 	void Update()
@@ -114,6 +118,7 @@ public class MailmanController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.RightShift)) {
 			if (currHouseTouching) {
 				dashboard.pickupMail (currHouseTouching.houseID);
+				dashboard.deliverMailToHouse (currHouseTouching.houseID);
 			}
 		}
 	}

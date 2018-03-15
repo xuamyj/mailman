@@ -39,8 +39,7 @@ public class TimeKeeper : MonoBehaviour {
 		int mailIDInt = storyIDInt * 1000 + mailNumInt;
 		return mailIDInt.ToString ();
 	}
-
-
+		
 	// helper function for incrementDay
 	private void initMail(int storyID) {
 		// update daysBeforeDeliver
@@ -52,18 +51,22 @@ public class TimeKeeper : MonoBehaviour {
 		// actually init the mail
 		string currMailID = getMailIDString(storyID, latestMailWaiting[storyID]);
 		Mail currMail = mailDb.getMailByID (currMailID);
+		Debug.Log (currMail.getFromHouseID ());
 		House currHouse = houseDb.getHouseByID (currMail.getFromHouseID ());
 		currHouse.addMail (currMailID);
 	}
 
 	void incrementDay() {
 		// update currDay
+		Debug.Log("increment day");
 		currDay++;
 
 		foreach (int storyID in mailDb.getAllStories ()) {
+			Debug.Log ("storyID: " + storyID);
 			// update daysBeforeDeliver
-			if (daysBeforeDeliver[storyID] != -1) {
+			if (daysBeforeDeliver.ContainsKey(storyID) && daysBeforeDeliver[storyID] != -1) {
 				daysBeforeDeliver [storyID]--;
+				Debug.Log (daysBeforeDeliver [storyID]);
 
 				// update latestMailWaiting
 				if (daysBeforeDeliver [storyID] == 0) {
@@ -75,8 +78,10 @@ public class TimeKeeper : MonoBehaviour {
 		if (TIMEKEEPER_DEBUG) {
 			Debug.Log ("TimeKeeper: day was incremented to " + currDay);
 			foreach (int storyID in mailDb.getAllStories ()) {
-				Debug.Log("    storyID " + storyID + " has latestMailWaiting + " + 
-					latestMailWaiting[storyID] + " and daysBeforeDeliver " + daysBeforeDeliver[storyID]);
+				if (latestMailWaiting.ContainsKey (storyID) && daysBeforeDeliver.ContainsKey(storyID)) {
+					Debug.Log ("    storyID " + storyID + " has latestMailWaiting + " +
+					latestMailWaiting [storyID] + " and daysBeforeDeliver " + daysBeforeDeliver [storyID]);
+				}
 			}
 		}
 	}
@@ -96,12 +101,16 @@ public class TimeKeeper : MonoBehaviour {
 	void Start () {
 		foreach (int storyID in mailDb.getAllStories ()) {
 			latestMailWaiting [storyID] = 0;
-			daysBeforeDeliver [storyID] = 0; 
+			daysBeforeDeliver [storyID] = 1; 
 		}
+
+		incrementDay ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.Q)){
+			incrementDay();
+		}
 	}
 }
