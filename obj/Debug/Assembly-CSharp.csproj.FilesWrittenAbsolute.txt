@@ -49,3 +49,9 @@
 /Users/amyxu/248 Prelim/Temp/bin/Debug/DOTween43.dll
 /Users/amyxu/248 Prelim/Temp/bin/Debug/DOTween50.dll
 /Users/amyxu/248 Prelim/Temp/bin/Debug/DOTween46.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/ProBuilderCore-Unity5.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/ProBuilderMeshOps-Unity5.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/KdTreeLib.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/pb_Stl.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/Poly2Tri.dll
+/Users/amyxu/248 Prelim/Temp/bin/Debug/ProBuilderEditor-Unity5.dll
