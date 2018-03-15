@@ -40,7 +40,8 @@ public class MailmanController : MonoBehaviour {
 			this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
 
 			// apply torque toward proper direction
-			Vector3 lookPos = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z);
+			// Vector3 lookPos = new Vector3(rb.velocity.x, 0.0f, rb.velocity.z); face velocity
+			Vector3 lookPos = force;
 			var rotation = Quaternion.LookRotation (lookPos);
 			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * TURN_EASINESS_FACTOR);
 			// THIS DID NOT WORK! but good try... rb.AddTorque(rotationToAdd.eulerAngles * 0.1f); 

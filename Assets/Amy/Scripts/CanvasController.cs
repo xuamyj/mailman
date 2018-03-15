@@ -10,7 +10,7 @@ public class CanvasController : MonoBehaviour {
 	float bottomRightOn;
 
 	const float DIST_FROM_CAMERA = 18.0f;
-	const float ANIMATION_SPEED = 0.5f;
+	const float ANIMATION_SPEED = 0.75f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,14 +24,14 @@ public class CanvasController : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Return)) {
 			if (canvasOn) {
-				this.transform.DOScale (Vector3.one / 10.0f, ANIMATION_SPEED).SetEase (Ease.Linear);
+				this.transform.DOScale (Vector3.one / 10.0f, ANIMATION_SPEED);
 				DOTween.To (() => bottomRightOn, x => bottomRightOn = x, 1.0f, 
-					ANIMATION_SPEED).SetEase (Ease.Linear);
+					ANIMATION_SPEED);
 				canvasOn = false;
 			} else { // canvasOn is false
-				this.transform.DOScale (Vector3.one, ANIMATION_SPEED).SetEase (Ease.Linear);
+				this.transform.DOScale (Vector3.one, ANIMATION_SPEED);
 				DOTween.To (() => bottomRightOn, x => bottomRightOn = x, 0.0f, 
-					ANIMATION_SPEED).SetEase (Ease.Linear);
+					ANIMATION_SPEED);
 				canvasOn = true;
 			}
 		}
