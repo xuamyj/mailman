@@ -12,7 +12,7 @@ public class MailDatabase : MonoBehaviour {
 	// mailID | fromHouseID | toHouseID \ daysToRead | text
 	string[] allMail = new[] {
 		"1000|MP|DD|2|secret admirer letter",
-		"1001|DD|MP|1|response 1/line 2/line 3",
+		"1001|DD|QZ|1|Dear Secret Admirer,\n\nThe poems are nice, but tell me more about you.",
 		"1002|MP|DD|1|response 2/part 2",
 		"1003|DD|MP|3|response 3",
 		"1004|MP|DD|1|response 4",

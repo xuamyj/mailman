@@ -12,9 +12,10 @@ public class HouseDatabase : MonoBehaviour {
 	string[] allHouses = new[] { 
 		// hey! if you change this, change each house's 
 		// HouseController.houseID in unity as well!
-		"MP|1 Rose|Secret Admirer", 
+		"MP|1 Rose|Leaf Club Leader", 
 		"DD|2 Oak|Jamie", 
-		"ZZ|1 Lake|Sleepy Cat"
+		"ZZ|1 Lake|Sleepy Cat",
+		"QZ|???|Secret Admirer",
 	};
 
 	public House getHouseByID(string houseID) {

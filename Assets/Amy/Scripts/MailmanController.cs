@@ -27,7 +27,8 @@ public class MailmanController : MonoBehaviour {
 	[SerializeField]
 	float BACK_POS_MOVE = -51.2f;
 
-	float CAMERA_TWEEN_CONST = 0.5f;
+	[SerializeField]
+	float CAMERA_TWEEN_CONST = 0.2f;
 
 	[SerializeField]
 	float JUMP_FACTOR = 120.0f;
