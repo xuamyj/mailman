@@ -1,41 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Amy/Scripts/Info/HouseDatabase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Amy/Scripts/Info/MailDatabase.cs">
     <Files>
-      <File FileName="Assets/Amy/Scripts/Info/Dashboard.cs" Line="72" Column="30" />
-      <File FileName="Assets/Amy/Scripts/MailController.cs" Line="13" Column="36" />
-      <File FileName="Assets/Amy/Scripts/MailmanController.cs" Line="29" Column="2" />
-      <File FileName="Assets/Amy/Scripts/Info/Mail.cs" Line="12" Column="16" NotebookId="1" />
-      <File FileName="Assets/Amy/Scripts/Info/House.cs" Line="12" Column="31" NotebookId="1" />
-      <File FileName="Assets/Amy/Scripts/CanvasController.cs" Line="50" Column="31" NotebookId="1" />
-      <File FileName="Assets/Amy/Scripts/Info/MailDatabase.cs" Line="15" Column="14" NotebookId="1" />
-      <File FileName="Assets/Amy/Scripts/Info/MailListController.cs" Line="55" Column="33" NotebookId="1" />
-      <File FileName="Assets/Amy/Scripts/MailViewController.cs" Line="26" Column="11" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/Info/MailDatabase.cs" Line="14" Column="17" />
+      <File FileName="Assets/Amy/Scripts/Info/Dashboard.cs" Line="1" Column="1" />
+      <File FileName="Assets/Amy/Scripts/MailController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Amy/Scripts/MailmanController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Amy/Scripts/Info/Mail.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/Info/House.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/CanvasController.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/Info/MailListController.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Amy/Scripts/MailViewController.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Amy/Scripts/Info/HouseDatabase.cs" Line="18" Column="25" NotebookId="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="248 Prelim" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Amy" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="Info" expanded="True">
-                    <Node name="HouseDatabase.cs" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-            <Node name="Assembly-CSharp-Editor" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="248 Prelim" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
