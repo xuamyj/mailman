@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4891799352892822}
   - component: {fileID: 114728664646651564}
+  - component: {fileID: 65949579962673994}
   m_Layer: 0
   m_Name: PlaceholderHouse
   m_TagString: Untagged
@@ -125,6 +126,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65949579962673994
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051746245432330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.039854, y: 12.566547, z: 24.386461}
+  m_Center: {x: 0.21910381, y: 1.5474491, z: 0.092103004}
 --- !u!114 &114728664646651564
 MonoBehaviour:
   m_ObjectHideFlags: 1
