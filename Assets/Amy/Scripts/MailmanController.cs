@@ -15,8 +15,11 @@ public class MailmanController : MonoBehaviour {
 	[SerializeField]
 	float FORCE_MULT_FACTOR = 20000.0f;
 	[SerializeField]
+	float DASH_MULT_FACTOR = 20000.0f;
+	[SerializeField]
 	float TORQUE_MULT_FACTOR = 100.0f;
 	const float TURN_EASINESS_FACTOR = 8.0f;
+
 
 	[SerializeField]
 	float UP_ROT_ANGLE = 15.0f;
@@ -26,6 +29,8 @@ public class MailmanController : MonoBehaviour {
 	float UP_POS_MOVE = 16.6f;
 	[SerializeField]
 	float BACK_POS_MOVE = -51.2f;
+	[SerializeField]
+	float FRONT_LOOK_AT_MOVE = 10.0f;
 
 	[SerializeField]
 	float CAMERA_TWEEN_CONST = 0.2f;
@@ -53,19 +58,20 @@ public class MailmanController : MonoBehaviour {
 			return;
 		}
 
+
 		Vector3 force = this.transform.forward * Input.GetAxis ("Vertical") * FORCE_MULT_FACTOR * Time.fixedDeltaTime; 
 		Vector3 torque = Mathf.Sign(Input.GetAxis ("Vertical"))*this.transform.up * Input.GetAxis ("Horizontal") * TORQUE_MULT_FACTOR * Time.fixedDeltaTime;
 		if (force.magnitude > 0.01f || torque.magnitude > 0.01f) {
 			// add force
 			rb.AddForce (force);
-			 rb.AddTorque (torque, ForceMode.Impulse);
+			rb.AddTorque (torque, ForceMode.Impulse);
 
 			// add "air resistance" (caps speed)
-			 rb.velocity *= VELOCITY_CAP_FACTOR;
+			rb.velocity *= VELOCITY_CAP_FACTOR;
 
 			// don't roll
 			float yRot = this.transform.eulerAngles.y;
-			 this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
+			this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
 
 			// apply torque toward proper direction
 			// THIS DID NOT WORK! but good try... rb.AddTorque(rotationToAdd.eulerAngles * 0.1f); 
@@ -74,12 +80,17 @@ public class MailmanController : MonoBehaviour {
 			// Vector3 lookPos = force;
 			// var rotation = Quaternion.LookRotation (lookPos);
 			// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * TURN_EASINESS_FACTOR);
-		} else {
-			// TODO: need to add "screech" animation here
-			// rb.velocity = Vector3.zero;
 		}
+
+		// jump
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			rb.velocity = new Vector3 (0.0f, JUMP_FACTOR);
+			rb.velocity = new Vector3 (0.0f, JUMP_FACTOR, 0.0f);
+		}
+
+		// dash
+		if (Input.GetKeyDown (KeyCode.RightCommand) || Input.GetKeyDown (KeyCode.LeftCommand)) {
+			Vector3 dashForce = this.transform.forward * DASH_MULT_FACTOR;
+			rb.AddForce (dashForce, ForceMode.Impulse);
 		}
 	}
 
@@ -105,10 +116,14 @@ public class MailmanController : MonoBehaviour {
 
 		// find camera position
 		Vector3 cameraPosition = this.transform.position + BACK_POS_MOVE * cameraForward;
-		cameraPosition.y = UP_POS_MOVE;
+		if (this.transform.position.y < UP_POS_MOVE / 3.0f) {
+			cameraPosition.y = UP_POS_MOVE;
+		} else {
+			cameraPosition.y = UP_POS_MOVE + this.transform.position.y;
+		}
 
 		mainCamera.transform.DOMove(cameraPosition, CAMERA_TWEEN_CONST);
-		mainCamera.transform.DOLookAt (this.transform.position, CAMERA_TWEEN_CONST*2);
+		mainCamera.transform.DOLookAt (this.transform.position + truckForward * FRONT_LOOK_AT_MOVE, CAMERA_TWEEN_CONST*2);
 	}
 
 	void Update()
@@ -116,7 +131,7 @@ public class MailmanController : MonoBehaviour {
 		updateCamera ();
 
 		// pick up mail
-		if (Input.GetKeyDown (KeyCode.RightShift)) {
+		if (Input.GetKeyDown (KeyCode.RightShift) || Input.GetKeyDown (KeyCode.LeftShift)) {
 			if (currHouseTouching) {
 				dashboard.pickupMail (currHouseTouching.houseID);
 				dashboard.deliverMailToHouse (currHouseTouching.houseID);
