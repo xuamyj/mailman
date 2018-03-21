@@ -28,6 +28,9 @@ ModelImporter:
     4300000: House:House
     4300002: House:klucka
     4300004: House:Stlpy
+    6400000: House:House
+    6400002: House:klucka
+    6400004: House:Stlpy
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -60,7 +63,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.9
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

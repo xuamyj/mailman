@@ -604,6 +604,114 @@ ModelImporter:
     4300210: ceiling01
     4300212: ceiling02
     4300214: roof1
+    6400000: BIC01
+    6400002: BIC02
+    6400004: BIC03
+    6400006: BIC04
+    6400008: ceiling01
+    6400010: ceiling02
+    6400012: door01
+    6400014: door01 1
+    6400016: door01 2
+    6400018: door01 3
+    6400020: door01 4
+    6400022: door02
+    6400024: door02 1
+    6400026: door02 2
+    6400028: door02 3
+    6400030: door02 4
+    6400032: door03
+    6400034: door03 1
+    6400036: door03 2
+    6400038: door03 3
+    6400040: door03 4
+    6400042: door04
+    6400044: door05
+    6400046: door06
+    6400048: door07
+    6400050: door08
+    6400052: door09
+    6400054: door10
+    6400056: door11
+    6400058: door12
+    6400060: door_fixed
+    6400062: door_fixed 1
+    6400064: door_frames
+    6400066: door_slide
+    6400068: door_slide 1
+    6400070: floor01
+    6400072: floor02
+    6400074: frame
+    6400076: frame 1
+    6400078: frame 10
+    6400080: frame 11
+    6400082: frame 12
+    6400084: frame 13
+    6400086: frame 2
+    6400088: frame 3
+    6400090: frame 4
+    6400092: frame 5
+    6400094: frame 6
+    6400096: frame 7
+    6400098: frame 8
+    6400100: frame 9
+    6400102: frame01
+    6400104: frame01 1
+    6400106: frame02
+    6400108: frame02 1
+    6400110: hall_door01
+    6400112: hall_door02
+    6400114: inner_wall01
+    6400116: inner_wall02
+    6400118: left_window
+    6400120: left_window 1
+    6400122: left_window 2
+    6400124: left_window 3
+    6400126: left_window 4
+    6400128: left_window 5
+    6400130: main_floor01
+    6400132: main_floor02
+    6400134: middle_wall
+    6400136: open_window
+    6400138: open_window 1
+    6400140: open_window 2
+    6400142: open_window 3
+    6400144: open_window 4
+    6400146: open_window 5
+    6400148: pipe
+    6400150: pipe 1
+    6400152: pipe 2
+    6400154: pipe 3
+    6400156: pipes
+    6400158: right_window
+    6400160: right_window 1
+    6400162: right_window 2
+    6400164: right_window 3
+    6400166: right_window 4
+    6400168: right_window 5
+    6400170: roof1
+    6400172: sink1
+    6400174: sink2
+    6400176: sink3
+    6400178: sink4
+    6400180: toilet01
+    6400182: toilet02
+    6400184: toilet03
+    6400186: toilet04
+    6400188: wall01
+    6400190: wall02
+    6400192: window
+    6400194: window 1
+    6400196: window 10
+    6400198: window 11
+    6400200: window 2
+    6400202: window 3
+    6400204: window 4
+    6400206: window 5
+    6400208: window 6
+    6400210: window 7
+    6400212: window 8
+    6400214: window 9
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -637,7 +745,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 10
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

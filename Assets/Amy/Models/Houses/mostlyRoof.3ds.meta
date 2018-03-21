@@ -107,6 +107,24 @@ ModelImporter:
     4300030: mesh16
     4300032: mesh17
     4300034: mesh18
+    6400000: mesh01
+    6400002: mesh02
+    6400004: mesh03
+    6400006: mesh04
+    6400008: mesh05
+    6400010: mesh06
+    6400012: mesh07
+    6400014: mesh08
+    6400016: mesh09
+    6400018: mesh10
+    6400020: mesh11
+    6400022: mesh12
+    6400024: mesh13
+    6400026: mesh14
+    6400028: mesh15
+    6400030: mesh16
+    6400032: mesh17
+    6400034: mesh18
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -139,7 +157,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.11
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

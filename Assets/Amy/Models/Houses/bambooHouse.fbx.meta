@@ -98,6 +98,22 @@ ModelImporter:
     4300026: roof
     4300028: ridge
     4300030: window_roof
+    6400000: barrels
+    6400002: boards
+    6400004: body_house
+    6400006: chimneys
+    6400008: door
+    6400010: fundametnts
+    6400012: garage
+    6400014: gutters
+    6400016: lamp_exterior
+    6400018: parapet
+    6400020: ridge
+    6400022: roof
+    6400024: stairs
+    6400026: wall_barrels
+    6400028: window_roof
+    6400030: windows
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -130,7 +146,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 85
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
