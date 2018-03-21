@@ -58,14 +58,14 @@ public class MailmanController : MonoBehaviour {
 		if (force.magnitude > 0.01f || torque.magnitude > 0.01f) {
 			// add force
 			rb.AddForce (force);
-			rb.AddTorque (torque, ForceMode.Impulse);
+			 rb.AddTorque (torque, ForceMode.Impulse);
 
 			// add "air resistance" (caps speed)
-			rb.velocity *= VELOCITY_CAP_FACTOR;
+			 rb.velocity *= VELOCITY_CAP_FACTOR;
 
 			// don't roll
 			float yRot = this.transform.eulerAngles.y;
-			this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
+			 this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
 
 			// apply torque toward proper direction
 			// THIS DID NOT WORK! but good try... rb.AddTorque(rotationToAdd.eulerAngles * 0.1f); 
@@ -79,7 +79,7 @@ public class MailmanController : MonoBehaviour {
 			// rb.velocity = Vector3.zero;
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			rb.AddForce (new Vector3 (0.0f, 1.0f) * JUMP_FACTOR, ForceMode.Impulse);
+			rb.velocity = new Vector3 (0.0f, JUMP_FACTOR);
 		}
 	}
 
