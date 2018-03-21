@@ -58,9 +58,17 @@ public class MailmanController : MonoBehaviour {
 			return;
 		}
 
+		Vector3 forward = this.transform.forward;
+		Vector3 up = Vector3.up;
 
-		Vector3 force = this.transform.forward * Input.GetAxis ("Vertical") * FORCE_MULT_FACTOR * Time.fixedDeltaTime; 
-		Vector3 torque = Mathf.Sign(Input.GetAxis ("Vertical"))*this.transform.up * Input.GetAxis ("Horizontal") * TORQUE_MULT_FACTOR * Time.fixedDeltaTime;
+		RaycastHit raycastHit;
+		if (Physics.Raycast (this.transform.position, -Vector3.up, out raycastHit)) {
+			forward = Vector3.ProjectOnPlane (forward, raycastHit.normal);
+			up = raycastHit.normal;
+		}
+
+		Vector3 force = forward * Input.GetAxis ("Vertical") * FORCE_MULT_FACTOR * Time.fixedDeltaTime; 
+		Vector3 torque = Mathf.Sign(Input.GetAxis ("Vertical"))* up * Input.GetAxis ("Horizontal") * TORQUE_MULT_FACTOR * Time.fixedDeltaTime;
 		if (force.magnitude > 0.01f || torque.magnitude > 0.01f) {
 			// add force
 			rb.AddForce (force);
@@ -69,9 +77,6 @@ public class MailmanController : MonoBehaviour {
 			// add "air resistance" (caps speed)
 			rb.velocity *= VELOCITY_CAP_FACTOR;
 
-			// don't roll
-			float yRot = this.transform.eulerAngles.y;
-			this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
 
 			// apply torque toward proper direction
 			// THIS DID NOT WORK! but good try... rb.AddTorque(rotationToAdd.eulerAngles * 0.1f); 
@@ -85,6 +90,9 @@ public class MailmanController : MonoBehaviour {
 		// jump
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			rb.velocity = new Vector3 (0.0f, JUMP_FACTOR, 0.0f);
+			// don't roll
+			float yRot = this.transform.eulerAngles.y;
+			this.transform.eulerAngles = new Vector3(0.0f, yRot, 0.0f);
 		}
 
 		// dash
