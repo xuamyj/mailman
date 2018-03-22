@@ -6,6 +6,10 @@ public class HouseController : MonoBehaviour {
 
 	public string houseID;
 	private House house;
+	[SerializeField]
+	GameObject exclamationObject;
+
+	private bool hasMail = true;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +18,9 @@ public class HouseController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (house != null && hasMail != house.checkHasMailToSend () && exclamationObject != null) {
+			hasMail = house.checkHasMailToSend ();
+			exclamationObject.SetActive (hasMail);
+		}
 	}
 }
