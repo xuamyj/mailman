@@ -141,8 +141,8 @@ public class MailmanController : MonoBehaviour {
 		// pick up mail
 		if (Input.GetKeyDown (KeyCode.RightShift) || Input.GetKeyDown (KeyCode.LeftShift)) {
 			if (currHouseTouching) {
-				dashboard.pickupMail (currHouseTouching.houseID);
-				dashboard.deliverMailToHouse (currHouseTouching.houseID);
+				AlertController.instance.showAlert(dashboard.pickupMail (currHouseTouching.houseID));
+				AlertController.instance.showAlert(dashboard.deliverMailToHouse (currHouseTouching.houseID));
 			}
 		}
 	}

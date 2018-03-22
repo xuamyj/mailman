@@ -30,18 +30,27 @@ public class Dashboard : MonoBehaviour {
 		}
 	}
 
-	public void deliverMailToHouse(string houseId)
+	public string deliverMailToHouse(string houseId)
 	{
 		List<string> mails = new List<string> (mailBeingHeld);
+		bool delivered = false;
 		foreach (string mailID in mails) {
-			Debug.Log(deliverMail (mailID, houseId));
+			if (deliverMail (mailID, houseId)) {
+				delivered = true;
+			}
+		}
+
+		if (delivered) {
+			return "Thanks for the mail!";
+		} else {
+			return mails.Count > 0 ? "Sorry, I don't think any of that mail is for me!" : "";
 		}
 	}
 
 
 	// returns house response
 	// TODO: add interesting responses per house
-	string deliverMail (string mailID, string houseID) {
+	bool deliverMail (string mailID, string houseID) {
 		// check for valid mailID and houseID
 		if (!mailDb.isValidMail(mailID) || !mailBeingHeld.Contains(mailID)) {
 			throw new System.Exception("Dashboard: deliverMail() - invalid mailID");
@@ -56,7 +65,7 @@ public class Dashboard : MonoBehaviour {
 			if (DASHBOARD_DEBUG) {
 				Debug.Log ("Dashboard: mail with ID " + mailID + " does not belong to house " + houseID);
 			}
-			return "Sorry, I don't think that mail is for me!";
+			return false;
 		
 		// real code here
 		} else {
@@ -72,7 +81,7 @@ public class Dashboard : MonoBehaviour {
 			if (mailHeldChanged != null){
 				mailHeldChanged (mailBeingHeld);
 			}
-			return "Thanks!";
+			return true;
 		}
 	}
 

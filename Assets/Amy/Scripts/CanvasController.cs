@@ -16,7 +16,13 @@ public class CanvasController : MonoBehaviour {
 	float prevframeBottomRightOn = 0.0f;
 	float bottomRightOn = 0.0f;
 
-	const float DIST_FROM_CAMERA = 5.0f;
+
+	[SerializeField]
+	float UP_OFFSET = 0.47f;
+	[SerializeField]
+	float RIGHT_OFFSET = 0.85f;
+
+	float DIST_FROM_CAMERA = 5.0f;
 	[SerializeField]
 	float CANVAS_SCALE = 0.05f;
 	float SHRINK_SCALE = 10.0f;
@@ -42,9 +48,9 @@ public class CanvasController : MonoBehaviour {
 	void Update () {
 		if (canvasOn) {
 			if (Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S)) {
-				mailListController.onVerticalInput (-1);
-			} else if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) {
 				mailListController.onVerticalInput (1);
+			} else if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) {
+				mailListController.onVerticalInput (-1);
 			} else if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) {
 				mailListController.onHorizontalInput (-1);
 			} else if (Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) {
@@ -65,6 +71,8 @@ public class CanvasController : MonoBehaviour {
 				canvasOn = true;
 				mailListController.isVisible ();
 			}
+
+
 		}
 
 		if (prevframeBottomRightOn != bottomRightOn) {
@@ -75,8 +83,8 @@ public class CanvasController : MonoBehaviour {
 			Quaternion newRotation = Quaternion.LookRotation (posOffset);
 			this.transform.rotation = newRotation;
 			// move to bottom right as necessary using bottomRightOn
-			Vector3 bottomRightOffset = newRotation * Vector3.up * (-0.47f * DIST_FROM_CAMERA) + 
-				newRotation * Vector3.right * (0.85f * DIST_FROM_CAMERA);
+			Vector3 bottomRightOffset = newRotation * Vector3.up * (-UP_OFFSET * DIST_FROM_CAMERA) + 
+				newRotation * Vector3.right * (RIGHT_OFFSET * DIST_FROM_CAMERA);
 			this.transform.position = newPosition + bottomRightOffset * bottomRightOn;
 		}
 
